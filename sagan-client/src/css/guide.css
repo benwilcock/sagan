@@ -90,8 +90,10 @@
     font-size: 15px;
     font-family: 'Monaco', monospace;
     border: 1px solid #e1e1e8;
-    white-space: nowrap;
     overflow-x: auto;
+}
+.guide main code {
+    white-space: nowrap;
 }
 .guide main pre code {
     border: none;
@@ -119,6 +121,12 @@
 }
 .guide main a:hover {
     color: #333;
+}
+h2[id*=reveal] {
+    cursor: pointer;
+}
+h2[id*=reveal]:hover {
+    color: #086dc3;
 }
 h2[id*=reveal]:before {
     font-family: 'Font Awesome 5 Free';

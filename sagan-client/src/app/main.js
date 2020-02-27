@@ -30,6 +30,12 @@ $(document).ready(function () {
         $('li#search').toggleClass('close');
         $('#searchheaderform input').focus();
     });
+
+    //Guide
+    $('body.guide main h2[id*=reveal]').click(function () {
+        $(this).parent().next().toggle();
+        $(this).toggleClass('open');
+    });
     
     $('pre.prettyprint').each(function () {
         var _this = $(this);
@@ -39,6 +45,18 @@ $(document).ready(function () {
             .attr('data-clipboard-text', _this.text());
         _this.append(button)
     });
+
+    $('pre code.prettyprint').each(function () {
+        var _this = $(this);
+        var button = $('<button />')
+            .text('Copy')
+            .addClass('copy-button button button-small animate')
+            .attr('data-clipboard-text', _this.text());
+        _this.parent()
+            .append(button)
+            .addClass('prettyprint')
+    });
+
     var clipboard = new ClipboardJS('.copy-button');
     clipboard.on('success', function(e) {
         e.trigger.textContent = 'Copied';
